@@ -1,0 +1,13 @@
+# API-Quotex - Better library with Playwright login (handles Cloudflare)
+git+https://github.com/A11ksa/API-Quotex.git
+fastapi
+uvicorn
+python-dotenv
+pandas
+numpy
+websockets==12.0
+cloudscraper
+beautifulsoup4
+setuptools<70
+python-telegram-bot>=20.0
+aiohttp
