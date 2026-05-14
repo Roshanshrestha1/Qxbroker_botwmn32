@@ -1,6 +1,7 @@
 """
-WMA32 Trading Bot - Telegram bot that scans for trading signals.
-Connects to the local QxBroker API for real-time market data.
+WMA32 Trading Bot - Advanced Telegram bot with 80%+ accuracy filters.
+Integrates signal detection, win/loss tracking, smart asset filtering,
+rich alerts, and health monitoring.
 """
 
 import asyncio
@@ -18,6 +19,18 @@ import numpy as np
 import aiohttp
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
+
+# Import our advanced modules
+from core.signal_detector import detect_signal
+from db.tracker import WinLossTracker, init_database, get_stats
+from utils.asset_filter import SmartAssetFilter
+from utils.telegram_alerts import (
+    send_signal, 
+    send_win_loss_notification, 
+    send_stats_summary,
+    send_health_alert
+)
+from utils.monitor import HealthMonitor, create_monitor
 
 
 # ----------------------------------------------------------------------
